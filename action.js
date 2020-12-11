@@ -28,7 +28,7 @@ const artifact = require("@actions/artifact");
     await exec("npm", ["install"]);
     await exec("gauge", ["install"]);
 
-    let failed = await exec(`gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=${env}`);
+    let failed = await exec(`gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=${env}`);
 
     if (failed) {
       let client = artifact.create();
